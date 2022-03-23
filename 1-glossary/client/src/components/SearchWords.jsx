@@ -14,7 +14,7 @@ class SearchWords extends React.Component {
     return (
       <div>
         <label htmlFor="search">Search for words:</label>
-        <input name="search" type="text"></input>
+        <input name="search" type="text" placeholder="Search for word"></input>
         <button>Search</button>
       </div>
     )

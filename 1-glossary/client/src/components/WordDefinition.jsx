@@ -6,16 +6,26 @@ class WordDefinition extends React.Component {
     super(props)
 
     this.state = {
-      words: []
+      word: this.props.word.word,
+      definition: this.props.word.definition
     }
+  }
+
+  // edit() {
+  //   this.props.edit(this.state)
+  // }
+
+  delete() {
+    this.props.delete(this.state)
   }
 
   render() {
     return (
       <div>
-        <div>{this.props.word.word}
+        <div>
+          {this.props.word.word} : {this.props.word.definition}
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={this.delete.bind(this)}>Delete</button>
         </div>
       </div>
     )

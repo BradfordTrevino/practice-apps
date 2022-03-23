@@ -7,7 +7,7 @@ const app = express();
 
 // Serves up all static and generated assets in ../client/dist.
 app.use(express.static(path.join(__dirname, "../client/dist")));
-
+app.use(express.json());
 /****
  *
  *
@@ -15,26 +15,30 @@ app.use(express.static(path.join(__dirname, "../client/dist")));
  *
  *
  */
-app.get(`/${process.env.DB_NAME}`, (req, res) => {
+app.get('/glossary', (req, res) => {
   Word.find({})
     .then((response) => {
       res.send(response);
     })
-  // res.send('Momma we made it!');
 })
 
-app.post(`/${process.env.DB_NAME}`, (req, res) => {
-  res.send('Got a POST request!');
+app.post('/glossary', (req, res) => {
+  Word.create(req.body)
+    .then((response) => {
+      res.send(response);
+    })
 });
 
-// glossary = [{ word: 'Dog', description: 'A best friend!'}]
-
-// glossary.forEach(word => {
-//   newWord = new Word(word);
-//   newWord.save((err) => {
-//     if (err) return err;
-//   })
+// app.post('/edit', (req, res) => {
+//   res.send('Hello I am editing')
 // })
+
+app.get('/delete', (req, res) => {
+  Word.deleteOne(req.body)
+    .then((response) => {
+      res.send(response);
+    })
+})
 
 app.listen(process.env.PORT);
 console.log(`Listening at http://localhost:${process.env.PORT}`);

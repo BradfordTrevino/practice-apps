@@ -15,7 +15,7 @@ class WordsList extends React.Component {
     return (
       <div>
         { this.props.words.map(word =>
-          <WordDefinition word={ word }/>
+          <WordDefinition word={ word } key={ word.word } delete={this.props.delete}/>
         )}
       </div>
     )
