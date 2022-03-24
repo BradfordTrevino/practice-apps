@@ -6,8 +6,8 @@ class WordDefinition extends React.Component {
     super(props)
 
     this.state = {
-      word: '',
-      definition: ''
+      word: this.props.word.word,
+      definition: this.props.word.definition
     }
   }
 
