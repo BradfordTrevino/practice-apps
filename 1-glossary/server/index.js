@@ -15,6 +15,7 @@ app.use(express.json());
  *
  *
  */
+
 app.get('/glossary', (req, res) => {
   Word.find({})
     .then((response) => {
@@ -44,7 +45,7 @@ app.post('/edit', (req, res) => {
     })
 })
 
-app.post('/delete', (req, res) => {
+app.delete('/glossary', (req, res) => {
   Word.deleteOne(req.body)
     .then((response) => {
       res.send(response);

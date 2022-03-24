@@ -7,7 +7,21 @@ class WordsList extends React.Component {
     super(props)
 
     this.state = {
-      words: []
+      page: 1
+    }
+  }
+
+  goToNextPage() {
+    this.setState({
+      page: this.state.page + 1
+    })
+  }
+
+  goToPreviousPage() {
+    if (this.state.page > 1) {
+      this.setState({
+        page: this.state.page - 1
+      })
     }
   }
 
@@ -15,8 +29,12 @@ class WordsList extends React.Component {
     return (
       <div>
         { this.props.words.map(word =>
-          <WordDefinition word={ word } delete={this.props.delete} edit={this.props.edit}/>
+          <WordDefinition key={word._id} word={ word } delete={this.props.delete} edit={this.props.edit}/>
         )}
+        <div>
+          <button onClick={this.goToPreviousPage.bind(this)}>Previous Page</button>
+          <button onClick={this.goToNextPage.bind(this)}>Next Page</button>
+        </div>
       </div>
     )
   }

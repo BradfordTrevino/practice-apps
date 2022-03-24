@@ -33,7 +33,6 @@ class App extends React.Component {
       definition: input.definition
     })
     .then((response) => {
-      console.log(response);
       this.updateWords();
     })
   }
@@ -50,9 +49,11 @@ class App extends React.Component {
   }
 
   delete(input) {
-    axios.post('/delete', {
-      word: input.word,
-      definition: input.definition
+    axios.delete('/glossary', {
+      data: {
+        word: input.word,
+        definition: input.definition
+      }
     })
     .then((response) => {
       this.updateWords();
