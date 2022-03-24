@@ -36,8 +36,8 @@ app.post('/glossary', (req, res) => {
 });
 
 app.post('/edit', (req, res) => {
-  let edit = { word: req.body.edit }
-  let word = { word: req.body.word }
+  let edit = { word: req.body.edit.word, definition: req.body.edit.definition }
+  let word = { word: req.body.word.word, definition: req.body.word.definition }
   Word.updateOne(word, edit)
     .then((response) => {
       res.status(201).send(response);

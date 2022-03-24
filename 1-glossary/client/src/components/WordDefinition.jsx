@@ -6,8 +6,8 @@ class WordDefinition extends React.Component {
     super(props)
 
     this.state = {
-      word: this.props.word.word,
-      definition: this.props.word.definition,
+      word: '',
+      definition: '',
       edit: false
     }
   }
@@ -18,23 +18,47 @@ class WordDefinition extends React.Component {
         <form id="edit">
 
           <label>Word: </label>
-          <input type="text"></input>
+          <input type="text" onChange={this.onEditWord.bind(this)}></input>
 
           <label>Definition: </label>
-          <input type="text"></input>
+          <input type="text" onChange={this.onEditDefinition.bind(this)}></input>
 
-          <button>Update</button>
+          <button onClick={this.edit.bind(this)}>Update</button>
 
         </form>
       </div>
     );
-    // const editedWord = prompt('Please enter your edit!');
-    // this.props.edit(editedWord, this.props.word.word)
   }
 
+  onEditWord(e) {
+    this.setState({
+      word: e.target.value
+    })
+  }
+
+  onEditDefinition(e) {
+    this.setState({
+      definition: e.target.value
+    })
+  }
+
+  edit() {
+    this.props.edit(
+    {
+      word: this.state.word,
+      definition: this.state.definition
+    },
+    {
+      word: this.props.word.word,
+      definition: this.props.word.definition
+    })
+  }
 
   delete() {
-    this.props.delete(this.state)
+    this.props.delete({
+      word: this.props.word.word,
+      definition: this.props.word.definition
+    })
   }
 
   render() {

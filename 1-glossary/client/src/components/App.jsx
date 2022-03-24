@@ -39,7 +39,11 @@ class App extends React.Component {
   }
 
   edit(edit, word) {
-    axios.post('/edit', { edit, word })
+    console.log(edit, word)
+    axios.post('/edit', {
+      edit: edit,
+      word: word
+    })
     .then((response) => {
       this.updateWords()
     })
