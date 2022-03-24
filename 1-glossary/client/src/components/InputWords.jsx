@@ -23,8 +23,12 @@ class InputWords extends React.Component {
     })
   }
 
-  onAdd() {
+  add() {
     this.props.add(this.state)
+    this.setState({
+      word: '',
+      definition: ''
+    })
   }
 
   render() {
@@ -33,7 +37,7 @@ class InputWords extends React.Component {
         <label htmlFor="input">Insert more words:</label>
         <input name="word" type="text" value={this.state.word} onChange={this.onChangeWord.bind(this)} placeholder='Insert a new word'/>
         <input name="definition" type="text" value={this.state.definition} onChange={this.onChangeDefinition.bind(this)} placeholder='Insert word definition'/>
-        <button onClick={this.onAdd.bind(this)}>Add</button>
+        <button onClick={this.add.bind(this)}>Add</button>
       </div>
     )
   }

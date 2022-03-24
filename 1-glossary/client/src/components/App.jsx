@@ -14,10 +14,13 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.updateWords()
+  }
+
   updateWords() {
     axios.get('/glossary')
     .then((response) => {
-      console.log(response.data);
       this.setState({
         words: response.data
       })
@@ -35,15 +38,15 @@ class App extends React.Component {
     })
   }
 
-  // edit(input) {
-  //   axios.post('/edit', {
-  //     word: input.word,
-  //     definition: input.definition
-  //   })
-  // }
+  edit(edit, word) {
+    axios.post('/edit', { edit, word })
+    .then((response) => {
+      this.updateWords()
+    })
+  }
 
   delete(input) {
-    axios.get('/delete', {
+    axios.post('/delete', {
       word: input.word,
       definition: input.definition
     })
@@ -52,8 +55,17 @@ class App extends React.Component {
     })
   }
 
-  componentDidMount() {
-    this.updateWords()
+  search(input) {
+    axios.get('/search', {
+      params: {
+        word: input
+      }
+    })
+    .then((response) => {
+      this.setState({
+        words: response.data
+      })
+    })
   }
 
   render() {
@@ -61,8 +73,8 @@ class App extends React.Component {
       <div>
         <h1>Glossary</h1>
         <InputWords add={this.add.bind(this)}/>
-        <SearchWords />
-        <WordsList words={this.state.words} delete={this.delete.bind(this)}/>
+        <SearchWords search={this.search.bind(this)}/>
+        <WordsList words={this.state.words} delete={this.delete.bind(this)} edit={this.edit.bind(this)}/>
       </div>
     )
   }

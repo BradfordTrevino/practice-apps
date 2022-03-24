@@ -6,14 +6,15 @@ class WordDefinition extends React.Component {
     super(props)
 
     this.state = {
-      word: this.props.word.word,
-      definition: this.props.word.definition
+      word: '',
+      definition: ''
     }
   }
 
-  // edit() {
-  //   this.props.edit(this.state)
-  // }
+  edit() {
+    const editedWord = prompt('Please enter your edit!');
+    this.props.edit(editedWord, this.props.word.word)
+  }
 
   delete() {
     this.props.delete(this.state)
@@ -24,7 +25,7 @@ class WordDefinition extends React.Component {
       <div>
         <div>
           {this.props.word.word} : {this.props.word.definition}
-          <button>Edit</button>
+          <button onClick={this.edit.bind(this)}>Edit</button>
           <button onClick={this.delete.bind(this)}>Delete</button>
         </div>
       </div>

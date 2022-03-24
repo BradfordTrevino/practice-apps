@@ -18,25 +18,43 @@ app.use(express.json());
 app.get('/glossary', (req, res) => {
   Word.find({})
     .then((response) => {
-      res.send(response);
+      res.status(200).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
     })
 })
 
 app.post('/glossary', (req, res) => {
   Word.create(req.body)
     .then((response) => {
-      res.send(response);
+      res.status(201).send(response);
+    })
+    .catch((error) => {
+      console.log(error);
     })
 });
 
-// app.post('/edit', (req, res) => {
-//   res.send('Hello I am editing')
-// })
+app.post('/edit', (req, res) => {
+  let edit = { word: req.body.edit }
+  let word = { word: req.body.word }
+  Word.updateOne(word, edit)
+    .then((response) => {
+      res.status(201).send(response);
+    })
+})
 
-app.get('/delete', (req, res) => {
+app.post('/delete', (req, res) => {
   Word.deleteOne(req.body)
     .then((response) => {
       res.send(response);
+    })
+})
+
+app.get('/search', (req, res) => {
+  Word.find(req.query)
+    .then((response) => {
+      res.status(200).send(response);
     })
 })
 
