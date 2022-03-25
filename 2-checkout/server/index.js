@@ -42,12 +42,41 @@ app.post('/checkout', (req, res) => {
   var cvv = req.body.cvv;
   var billZip = req.body.billZip;
 
-  var insert = `INSERT INTO responses (name, email, password, addline1, addline2, city, state, zip, phoneNum, ccNum, expDate, cvv, billZip) VALUES ('${name}', '${email}', '${password}', '${addline1}', '${addline2}', '${city}', '${state}', '${zip}', '${phoneNum}', '${ccNum}', '${expDate}', '${cvv}', '${billZip}')`
+  var insert = `INSERT INTO responses (
+    name,
+    email,
+    password,
+    addline1,
+    addline2,
+    city,
+    state,
+    zip,
+    phoneNum,
+    ccNum,
+    expDate,
+    cvv,
+    billZip
+    ) VALUES (
+      '${name}',
+      '${email}',
+      '${password}',
+      '${addline1}',
+      '${addline2}',
+      '${city}',
+      '${state}',
+      '${zip}',
+      '${phoneNum}',
+      '${ccNum}',
+      '${expDate}',
+      '${cvv}',
+      '${billZip}'
+    )`
+
   db.query(insert, (err, response) => {
     if (err) throw (err);
     console.log('Response inserted!');
+    res.redirect('/');
   })
-  res.send('Route is established!')
 })
 
 app.listen(process.env.PORT);

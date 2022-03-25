@@ -8,21 +8,21 @@ class App extends React.Component {
     super (props)
   }
 
-  saveData(input) {
+  submitData(form) {
     axios.post('/checkout', {
-      name: '',
-      email: '',
-      password: '',
-      addline1: '',
-      addline2: '',
-      city: '',
-      state: '',
-      zip: '',
-      phoneNum: '',
-      ccNum: '',
-      expDate: '',
-      cvv: '',
-      billZip: ''
+      name: form.name,
+      email: form.email,
+      password: form.password,
+      addline1: form.addline1,
+      addline2: form.addline2,
+      city: form.city,
+      state: form.state,
+      zip: form.zip,
+      phoneNum: form.phoneNum,
+      ccNum: form.ccNum,
+      expDate: form.expDate,
+      cvv: form.cvv,
+      billZip: form.billZip
     })
       .then((response) => {
         console.log(response);
@@ -36,7 +36,7 @@ class App extends React.Component {
           <p>
             <code>Page Cookie: {JSON.stringify(document.cookie, undefined, "\t")}</code>
           </p>
-        <Forms />
+        <Forms submitData={this.submitData.bind(this)}/>
       </div>
     )
   }
