@@ -51,7 +51,7 @@ class Forms extends React.Component {
   }
 
   handleBackClick() {
-    if (this.state.form > 1) {
+    if (this.state.form > 0) {
       this.setState({
         form: this.state.form - 1
       })
@@ -73,6 +73,7 @@ class Forms extends React.Component {
       this.clearState();
     } else {
       console.log('Incomplete form!')
+      window.alert('Incomplete form!')
     }
   }
 
@@ -187,7 +188,6 @@ class Forms extends React.Component {
   renderConfirmation() {
     return (
       <div>
-        <div>Confirmation!</div>
           <div><b>Name:</b> {this.state.name}</div>
           <div><b>Email:</b> {this.state.name}</div>
           <div><b>Password:</b> {this.state.name}</div>
@@ -201,7 +201,11 @@ class Forms extends React.Component {
           <div><b>Exp Date (YYYYMMDD):</b> {this.state.name}</div>
           <div><b>CVV:</b> {this.state.name}</div>
           <div><b>Billing Zip Code:</b> {this.state.name}</div>
-        <button onClick={this.handlePurchaseClick.bind(this)}>Purchase</button>
+
+          <div>
+            <button onClick={this.handleBackClick.bind(this)}>Back</button>
+            <button onClick={this.handlePurchaseClick.bind(this)}>Purchase</button>
+          </div>
       </div>
     )
   }
@@ -211,7 +215,6 @@ class Forms extends React.Component {
 
     return (
       <div>
-        <h1>Hello! I am a form!</h1>
         { form === 0 ? this.renderCheckoutButton() : null }
         { form === 1 ? this.renderFormOne() : null }
         { form === 2 ? this.renderFormTwo() : null }

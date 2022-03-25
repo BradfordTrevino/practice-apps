@@ -24,9 +24,12 @@ class App extends React.Component {
       cvv: form.cvv,
       billZip: form.billZip
     })
-      .then((response) => {
-        console.log(response);
-      })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   render() {
