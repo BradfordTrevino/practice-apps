@@ -67,8 +67,13 @@ class Forms extends React.Component {
   }
 
   handlePurchaseClick() {
-    this.props.submitData(this.state);
-    this.clearState();
+    var inputValues = Object.values(this.state);
+    if (!inputValues.includes('')) {
+      this.props.submitData(this.state);
+      this.clearState();
+    } else {
+      console.log('Incomplete form!')
+    }
   }
 
   renderCheckoutButton() {
@@ -183,6 +188,19 @@ class Forms extends React.Component {
     return (
       <div>
         <div>Confirmation!</div>
+          <div><b>Name:</b> {this.state.name}</div>
+          <div><b>Email:</b> {this.state.name}</div>
+          <div><b>Password:</b> {this.state.name}</div>
+          <div><b>Address Line 1:</b> {this.state.name}</div>
+          <div><b>Address Line 2:</b> {this.state.name}</div>
+          <div><b>City:</b> {this.state.name}</div>
+          <div><b>State:</b> {this.state.name}</div>
+          <div><b>Zip:</b> {this.state.name}</div>
+          <div><b>Phone Number:</b> {this.state.name}</div>
+          <div><b>Credit Card Number:</b> {this.state.name}</div>
+          <div><b>Exp Date (YYYYMMDD):</b> {this.state.name}</div>
+          <div><b>CVV:</b> {this.state.name}</div>
+          <div><b>Billing Zip Code:</b> {this.state.name}</div>
         <button onClick={this.handlePurchaseClick.bind(this)}>Purchase</button>
       </div>
     )

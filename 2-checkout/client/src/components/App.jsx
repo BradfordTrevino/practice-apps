@@ -32,10 +32,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <p>Hello, World!</p>
-          <p>
-            <code>Page Cookie: {JSON.stringify(document.cookie, undefined, "\t")}</code>
-          </p>
+        {/* <code>Page Cookie: {JSON.stringify(document.cookie, undefined, "\t")}</code> */}
         <Forms submitData={this.submitData.bind(this)}/>
       </div>
     )
