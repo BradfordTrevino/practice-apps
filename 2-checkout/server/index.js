@@ -20,61 +20,14 @@ app.use(logger);
 app.use(express.static(path.join(__dirname, "../client/dist")));
 app.use(express.json());
 
-/****
- *
- *
- * Other routes here....
- *
- *
- */
 app.post('/checkout', (req, res) => {
-  var {
-    name,
-    email,
-    password,
-    addline1,
-    addline2,
-    city,
-    state,
-    zip,
-    phoneNum,
-    ccNum,
-    expDate,
-    cvv,
-    billZip
-  } = req.body;
+  var { name, email, password, addline1, addline2, city, state, zip, phoneNum, ccNum, expDate, cvv, billZip } = req.body;
 
-  var insert = `INSERT INTO responses (
-    name,
-    email,
-    password,
-    addline1,
-    addline2,
-    city,
-    state,
-    zip,
-    phoneNum,
-    ccNum,
-    expDate,
-    cvv,
-    billZip
-    ) VALUES (
-      '${name}',
-      '${email}',
-      '${password}',
-      '${addline1}',
-      '${addline2}',
-      '${city}',
-      '${state}',
-      '${zip}',
-      '${phoneNum}',
-      '${ccNum}',
-      '${expDate}',
-      '${cvv}',
-      '${billZip}'
-    )`
+  var insertParams = [ name, email, password, addline1, addline2, city, state, zip, phoneNum, ccNum, expDate, cvv, billZip, req.session_id ];
 
-  db.query(insert, (err, response) => {
+  var insert = 'INSERT INTO responses ( name, email, password, addline1, addline2, city, state, zip, phoneNum, ccNum, expDate, cvv, billZip, cookie ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+
+  db.query(insert, insertParams, (err, response) => {
     if (err) throw (err);
     console.log('Response inserted!');
     res.redirect('/');

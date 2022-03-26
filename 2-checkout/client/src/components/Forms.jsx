@@ -194,18 +194,18 @@ class Forms extends React.Component {
     return (
       <div>
           <div><b>Name:</b> {this.state.name}</div>
-          <div><b>Email:</b> {this.state.name}</div>
-          <div><b>Password:</b> {this.state.name}</div>
-          <div><b>Address Line 1:</b> {this.state.name}</div>
-          <div><b>Address Line 2:</b> {this.state.name}</div>
-          <div><b>City:</b> {this.state.name}</div>
-          <div><b>State:</b> {this.state.name}</div>
-          <div><b>Zip:</b> {this.state.name}</div>
-          <div><b>Phone Number:</b> {this.state.name}</div>
-          <div><b>Credit Card Number:</b> {this.state.name}</div>
-          <div><b>Exp Date (YYYYMMDD):</b> {this.state.name}</div>
-          <div><b>CVV:</b> {this.state.name}</div>
-          <div><b>Billing Zip Code:</b> {this.state.name}</div>
+          <div><b>Email:</b> {this.state.email}</div>
+          <div><b>Password:</b> {this.state.password}</div>
+          <div><b>Address Line 1:</b> {this.state.addline1}</div>
+          <div><b>Address Line 2:</b> {this.state.addline2}</div>
+          <div><b>City:</b> {this.state.city}</div>
+          <div><b>State:</b> {this.state.state}</div>
+          <div><b>Zip:</b> {this.state.zip}</div>
+          <div><b>Phone Number:</b> {this.state.phoneNum}</div>
+          <div><b>Credit Card Number:</b> {this.state.ccNum}</div>
+          <div><b>Exp Date (YYYYMMDD):</b> {this.state.expDate}</div>
+          <div><b>CVV:</b> {this.state.cvv}</div>
+          <div><b>Billing Zip Code:</b> {this.state.billZip}</div>
 
           <div>
             <button onClick={this.handleBackClick.bind(this)}>Back</button>

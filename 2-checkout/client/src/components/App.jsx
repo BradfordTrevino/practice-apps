@@ -35,7 +35,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <code>Page Cookie: {JSON.stringify(document.cookie, undefined, "\t")}</code> */}
         <Forms submitData={this.submitData.bind(this)}/>
       </div>
     )

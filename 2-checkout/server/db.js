@@ -30,7 +30,8 @@ db.connectAsync()
         ccNum VARCHAR(19),
         expDate DATE,
         cvv VARCHAR(3),
-        billZip VARCHAR(5));`
+        billZip VARCHAR(5),
+        cookie VARCHAR(50))`
     )
   )
   .catch((err) => console.log(err));
