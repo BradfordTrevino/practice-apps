@@ -72,9 +72,9 @@ class Forms extends React.Component {
       this.props.submitData(this.state);
       this.clearState();
     } else {
-      console.log('Incomplete form!')
       window.alert('Incomplete form!')
     }
+    // if (inputValues.includes(''))
   }
 
   handleInputChange(e, input) {
@@ -96,18 +96,15 @@ class Forms extends React.Component {
         <h2>Form 1 Rendered!</h2>
 
         <div>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" onChange={(e) => {this.handleInputChange(e, { name: e.target.value })}}></input>
+          <input type="text" id="name" placeholder="Name" onChange={(e) => {this.handleInputChange(e, { name: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="email">Email:</label>
-          <input type="text" id="email" onChange={(e) => {this.handleInputChange(e, { email: e.target.value })}}></input>
+          <input type="text" id="email" placeholder="Email" onChange={(e) => {this.handleInputChange(e, { email: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="password">Password:</label>
-          <input type="text" id="password" onChange={(e) => {this.handleInputChange(e, { password: e.target.value })}}></input>
+          <input type="text" id="password" placeholder="Password" onChange={(e) => {this.handleInputChange(e, { password: e.target.value })}}></input>
         </div>
 
         <div>
@@ -124,33 +121,27 @@ class Forms extends React.Component {
         <h2>Form 2 Rendered!</h2>
 
         <div>
-          <label htmlFor="addline1">Address Line 1:</label>
-          <input type="text" id="addline1" onChange={(e) => {this.handleInputChange(e, { addline1: e.target.value })}}></input>
+          <input type="text" id="addline1" placeholder="Address Line 1" onChange={(e) => {this.handleInputChange(e, { addline1: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="addline2">Address Line 2:</label>
-          <input type="text" id="addline2" onChange={(e) => {this.handleInputChange(e, { addline2: e.target.value })}}></input>
+          <input type="text" id="addline2" placeholder="Address Line 2" onChange={(e) => {this.handleInputChange(e, { addline2: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="city">City:</label>
-          <input type="text" id="city" onChange={(e) => {this.handleInputChange(e, { city: e.target.value })}}></input>
+          <input type="text" id="city" placeholder="City" onChange={(e) => {this.handleInputChange(e, { city: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="state">State:</label>
-          <input type="text" id="state" onChange={(e) => {this.handleInputChange(e, { state: e.target.value })}}></input>
+          <input type="text" id="state" placeholder="State" onChange={(e) => {this.handleInputChange(e, { state: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="zip">Zip Code:</label>
-          <input type="text" id="zip" onChange={(e) => {this.handleInputChange(e, { zip: e.target.value })}}></input>
+          <input type="text" id="zip" placeholder="Zip Code" onChange={(e) => {this.handleInputChange(e, { zip: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="phoneNum">Phone Number:</label>
-          <input type="text" id="phoneNum" onChange={(e) => {this.handleInputChange(e, { phoneNum: e.target.value })}}></input>
+          <input type="text" id="phoneNum" placeholder="Phone Number" onChange={(e) => {this.handleInputChange(e, { phoneNum: e.target.value })}}></input>
         </div>
 
         <button onClick={this.handleBackClick.bind(this)}>Back</button>
@@ -165,23 +156,19 @@ class Forms extends React.Component {
         <h2>Form 3 Rendered!</h2>
 
         <div>
-          <label htmlFor="ccNum">Credit Card Number:</label>
-          <input type="text" id="ccNum" onChange={(e) => {this.handleInputChange(e, { ccNum: e.target.value })}}></input>
+          <input type="text" id="ccNum" placeholder="CC Number"onChange={(e) => {this.handleInputChange(e, { ccNum: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="expDate">Exp Date (YYYYMMDD):</label>
-          <input type="text" id="expDate" onChange={(e) => {this.handleInputChange(e, { expDate: e.target.value })}}></input>
+          <input type="text" id="expDate" placeholder="Exp Date (YYYYMMDD)" onChange={(e) => {this.handleInputChange(e, { expDate: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="cvv">CVV:</label>
-          <input type="text" id="cvv" onChange={(e) => {this.handleInputChange(e, { cvv: e.target.value })}}></input>
+          <input type="text" id="cvv" placeholder="CVV" onChange={(e) => {this.handleInputChange(e, { cvv: e.target.value })}}></input>
         </div>
 
         <div>
-          <label htmlFor="billZip">Billing Zip Code:</label>
-          <input type="text" id="billZip" onChange={(e) => {this.handleInputChange(e, { billZip: e.target.value })}}></input>
+          <input type="text" id="billZip" placeholder="Billing Zip Code" onChange={(e) => {this.handleInputChange(e, { billZip: e.target.value })}}></input>
         </div>
 
           <button onClick={this.handleBackClick.bind(this)}>Back</button>
