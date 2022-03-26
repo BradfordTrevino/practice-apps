@@ -1,7 +1,8 @@
 import React from "react";
 import { render } from "react-dom";
 import axios from "axios";
-import Forms from "./Forms.jsx"
+import Forms from "./Forms.jsx";
+import Modal from "react-modal";
 
 class App extends React.Component {
   constructor (props) {
