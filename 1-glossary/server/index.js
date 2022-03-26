@@ -36,6 +36,9 @@ app.post('/edit', (req, res) => {
     .then((response) => {
       res.status(201).send(response);
     })
+    .catch((error) => {
+      res.sendStatus(500);
+    })
 })
 
 app.delete('/glossary', (req, res) => {
