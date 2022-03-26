@@ -4,9 +4,30 @@ import axios from "axios";
 import Forms from "./Forms.jsx";
 import Modal from "react-modal";
 
+Modal.setAppElement("#root");
+
 class App extends React.Component {
   constructor (props) {
     super (props)
+
+    this.state = {
+      showModal: false
+    }
+
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal() {
+    this.setState({
+      showModal: true
+    })
+  }
+
+  handleCloseModal() {
+    this.setState({
+      showModal: false
+    })
   }
 
   submitData(form) {
@@ -22,7 +43,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Forms submitData={this.submitData.bind(this)}/>
+        <button onClick={this.handleOpenModal}>Checkout</button>
+        <Modal isOpen={this.state.showModal} contentLabel="Test Example">
+          <Forms submitData={this.submitData.bind(this)} handleCloseModal={this.handleCloseModal}/>
+        </Modal>
       </div>
     )
   }

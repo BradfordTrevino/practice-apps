@@ -6,7 +6,7 @@ class Forms extends React.Component {
     super (props)
 
     this.state = {
-      form: 0,
+      form: 1,
       checkout: {}
     }
   }
@@ -14,19 +14,7 @@ class Forms extends React.Component {
   clearState() {
     this.setState({
       form: 0,
-      name: '',
-      email: '',
-      password: '',
-      addline1: '',
-      addline2: '',
-      city: '',
-      state: '',
-      zip: '',
-      phoneNum: '',
-      ccNum: '',
-      expDate: '',
-      cvv: '',
-      billZip: ''
+      checkout: {}
     })
   }
 
@@ -74,7 +62,9 @@ class Forms extends React.Component {
   }
 
   handlePurchaseClick() {
-    this.props.submitData(this.state.checkout);
+    const { submitData, handleCloseModal } = this.props;
+    submitData(this.state.checkout);
+    handleCloseModal();
     this.clearState();
   }
 
@@ -84,7 +74,6 @@ class Forms extends React.Component {
     const { id, value } = e.target;
     checkout[id] = value;
     this.setState({ checkout })
-    console.log(this.state.checkout);
   }
 
   handleFormOneValidation() {
