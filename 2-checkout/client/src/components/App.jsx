@@ -10,21 +10,7 @@ class App extends React.Component {
   }
 
   submitData(form) {
-    axios.post('/checkout', {
-      name: form.name,
-      email: form.email,
-      password: form.password,
-      addline1: form.addline1,
-      addline2: form.addline2,
-      city: form.city,
-      state: form.state,
-      zip: form.zip,
-      phoneNum: form.phoneNum,
-      ccNum: form.ccNum,
-      expDate: form.expDate,
-      cvv: form.cvv,
-      billZip: form.billZip
-    })
+    axios.post('/checkout', form)
     .then((response) => {
       console.log(response);
     })
