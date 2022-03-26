@@ -59,27 +59,94 @@ class Forms extends React.Component {
   }
 
   handleNextClick() {
-    if (this.state.form < 4) {
-      this.setState({
-        form: this.state.form + 1
-      })
+    const { form } = this.state;
+    switch (form) {
+      case 1:
+        if (this.handleFormOneValidation()) {
+          this.setState({
+            form: this.state.form + 1
+          })
+        }
+        break;
+      case 2:
+        if (this.handleFormTwoValidation()) {
+          this.setState({
+            form: this.state.form + 1
+          })
+        }
+        break;
+      case 3:
+        if (this.handleFormThreeValidation()) {
+          this.setState({
+            form: this.state.form + 1
+          })
+        }
+        break;
     }
   }
 
   handlePurchaseClick() {
-    var inputValues = Object.values(this.state);
-    if (!inputValues.includes('')) {
-      this.props.submitData(this.state);
-      this.clearState();
-    } else {
-      window.alert('Incomplete form!')
-    }
-    // if (inputValues.includes(''))
+    this.props.submitData(this.state);
+    this.clearState();
   }
 
   handleInputChange(e, input) {
     e.preventDefault();
     this.setState(input)
+  }
+
+  handleFormOneValidation() {
+    var { name, email, password } = this.state;
+    var formOneValues = { name, email, password };
+    let incomplete = [];
+
+    for (let key in formOneValues) {
+      if (formOneValues[key] === '') {
+        incomplete.push(key);
+      }
+    }
+
+    if (incomplete.length > 0) {
+      window.alert(`Incomplete form! Please fill in ${incomplete.join(', ')}!`);
+    } else {
+      return true;
+    }
+  }
+
+  handleFormTwoValidation() {
+    var { addline1, city, state, zip, phoneNum } = this.state;
+    var formTwoValues = { addline1, city, state, zip, phoneNum }
+    let incomplete = [];
+
+    for (let key in formTwoValues) {
+      if (formTwoValues[key] === '') {
+        incomplete.push(key);
+      }
+    }
+
+    if (incomplete.length > 0) {
+      window.alert(`Incomplete form! Please fill in ${incomplete.join(', ')}!`);
+    } else {
+      return true;
+    }
+  }
+
+  handleFormThreeValidation() {
+    var { ccNum, expDate, cvv, billZip } = this.state;
+    var formThreeValues = { ccNum, expDate, cvv, billZip };
+    let incomplete = [];
+
+    for (let key in formThreeValues) {
+      if (formThreeValues[key] === '') {
+        incomplete.push(key);
+      }
+    }
+
+    if (incomplete.length > 0) {
+      window.alert(`Incomplete form! Please fill in ${incomplete.join(', ')}!`);
+    } else {
+      return true;
+    }
   }
 
   renderCheckoutButton() {
@@ -125,7 +192,7 @@ class Forms extends React.Component {
         </div>
 
         <div>
-          <input type="text" id="addline2" placeholder="Address Line 2" onChange={(e) => {this.handleInputChange(e, { addline2: e.target.value })}}></input>
+          <input type="text" id="addline2" placeholder="Address Line 2 (OPTL)" onChange={(e) => {this.handleInputChange(e, { addline2: e.target.value })}}></input>
         </div>
 
         <div>
