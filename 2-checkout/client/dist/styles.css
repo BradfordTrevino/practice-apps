@@ -1,10 +1,10 @@
 /**
- * 
+ *
  * Based on Josh Comeau's CSS Reset: https://www.joshwcomeau.com/css/custom-css-reset/.
- * 
+ *
  * Feel free to edit this file as needed.
- * 
- */ 
+ *
+ */
 
 *,
 *::before,
@@ -57,4 +57,67 @@ main {
   max-width: 840px;
   padding: 16px;
   margin: auto;
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.Modal {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  bottom: 40px;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: black;
+}
+
+input:focus {
+  border-color: green;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  border-width: 0px;
+  margin: 2px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+}
+
+ul {
+  padding: 0px;
+  list-style: none;
+  border-width: 1px;
+  border-color: lightgray;
+}
+
+li {
+  color: black;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding: 1px;
+}
+
+li:hover {
+  border-color: green;
 }

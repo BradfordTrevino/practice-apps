@@ -42,9 +42,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <button onClick={this.handleOpenModal}>Checkout</button>
-        <Modal isOpen={this.state.showModal} contentLabel="Test Example">
+      <div className="field">
+        <button className="button" onClick={this.handleOpenModal}>Checkout</button>
+        <Modal className="Modal" isOpen={this.state.showModal} contentLabel="Test Example" >
           <Forms submitData={this.submitData.bind(this)} handleCloseModal={this.handleCloseModal}/>
         </Modal>
       </div>
