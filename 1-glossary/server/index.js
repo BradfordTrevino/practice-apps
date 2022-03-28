@@ -15,7 +15,7 @@ app.get('/glossary', (req, res) => {
       res.status(200).send(response);
     })
     .catch((error) => {
-      console.log(error);
+      res.sendStatus(500);
     })
 })
 
@@ -25,7 +25,7 @@ app.post('/glossary', (req, res) => {
       res.status(201).send(response);
     })
     .catch((error) => {
-      console.log(error);
+      res.sendStatus(500);
     })
 });
 
@@ -46,12 +46,18 @@ app.delete('/glossary', (req, res) => {
     .then((response) => {
       res.send(response);
     })
+    .catch((error) => {
+      res.sendStatus(500);
+    })
 })
 
 app.get('/search', (req, res) => {
   Word.find(req.query)
     .then((response) => {
       res.status(200).send(response);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
     })
 })
 
